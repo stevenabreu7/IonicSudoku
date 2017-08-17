@@ -20,7 +20,6 @@ export class PlayPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PlayPage');
   }
 
   startGame(diff: number) {

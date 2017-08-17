@@ -72,13 +72,13 @@ export class BoardProvider {
 
   makeMove(i: number, j: number, move: number) {
     if (i < 0 || i > 8 || j < 0 || j > 8 || move < 1 || move > 9) {
-      console.log("invalid move.");
+      // console.log("invalid move.");
       return false;
     } else if (!this.changeable[i][j]) {
-      console.log("this field is not changeable.");
+      // console.log("this field is not changeable.");
       return false;
     } else if (this.fields[i][j] == move) {
-      console.log("this move has already been made.");
+      // console.log("this move has already been made.");
       return false;
     } else {
       let crrct = this.isMoveCorrect(i, j, move);

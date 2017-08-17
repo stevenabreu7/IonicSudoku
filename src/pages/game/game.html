@@ -10,26 +10,30 @@
 <ion-content padding>
   <!-- Sudoku Field -->
   <ion-grid>
-    <div *ngFor="let item of board.fields; let row = index;" style="text-align:center;">
-      <div class="number-container" *ngFor="let number of item; let col = index;" (click)='pressedField(row,col)'>
+    <div class="field-row" *ngFor="let item of board.fields; let row = index;" style="text-align:center;">
+      <div class="field" *ngFor="let number of item; let col = index;" (click)='pressedField(row,col)'>
         {{number}}
       </div>
     </div>
 
-    <div style="height:5vh"></div>
+    <div style="height:20px"></div>
 
     <div style="text-align:center;">
       <div class="number-container" *ngFor="let number of [1,2,3,4,5,6,7,8,9]" (click)='pressedNumber(number)'>
-        <div style="background-color:white;" *ngIf="selected != number">
+        <div class="number" *ngIf="selected != number">
           {{number}}
         </div>
-        <div style="background-color:#bbb;" *ngIf="selected == number">
+        <div class="number selected" *ngIf="selected == number">
           {{number}}
         </div>
       </div>
     </div>
-  </ion-grid>
 
-  <button ion-button full secondary (click)="solve()">Solve Sudoku</button>
+    <div style="height:10px"></div>
+
+    <div>
+        <button ion-button full secondary (click)="solve()">Solve Sudoku</button>
+    </div>
+  </ion-grid>
 
 </ion-content>

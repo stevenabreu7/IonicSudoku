@@ -1,10 +1,57 @@
 page-game {
+    // fields
+    .field {
+        width:9vmin;
+        height:9vmin;
+        line-height:9vmin;
+        display:inline-block;
+        text-align:center;
+        border: 1px solid black;
+    }
+
+    // number buttons
     .number-container {
         width:9vmin;
         height:9vmin;
         line-height:9vmin;
         display:inline-block;
         text-align:center;
-        border:1px solid black;
+    }
+    .number {
+        border-radius: 5px;
+        background-color: white;
+    }
+    .number.selected {
+        background-color: #bbb;
+    }
+
+    // no border at the ends
+    .field-row:nth-child(1) .field {
+        border-top-width: 0px;
+    }
+    .field-row:nth-child(9) .field {
+        border-bottom-width: 0px;
+    }
+    .field:nth-child(1) {
+        border-left-width: 0px;
+    }
+    .field:nth-child(9) {
+        border-right-width: 0px;
+    }
+
+    // double horizontal borders
+    .field-row:nth-child(3) .field {
+        border-bottom-width: 3px;
+    }
+    .field-row:nth-child(6) .field {
+        border-bottom-width: 3px;
+    }
+
+    // double vertical borders
+    .field:nth-child(3) {
+        border-right-width: 3px;
+    }
+    .field:nth-child(6) {
+        border-right-width: 3px;
     }
 }

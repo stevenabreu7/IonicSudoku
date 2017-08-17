@@ -1,13 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { BoardProvider } from '../../providers/board/board';
-
-/**
- * Generated class for the GamePage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -20,7 +13,10 @@ export class GamePage {
   difText: string;
   selected: number = -1;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public board: BoardProvider) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, public board: BoardProvider, 
+              public alertCtrl: AlertController) {
+    // constructor
   }
 
   ionViewDidLoad() {
@@ -40,16 +36,24 @@ export class GamePage {
   }
 
   pressedField(row: number, col: number) {
-    this.board.makeMove(row, col, this.selected);
-    // let res = this.board.makeMove(row, col, this.selected);
-    // if (!res) {
-    //   console.log("invalid move");
-    // }
+    let res = this.board.makeMove(row, col, this.selected);
+    if (!res) {
+      this.invalidMoveAlert();
+    }
     this.checkGame();
   }
 
   pressedNumber(num: number) {
-    this.selected = num;
+    if (this.selected == num) {
+      this.selected = -1;
+    } else {
+      this.selected = num;
+    }
+    // if (num%2 == 0) {
+    //   this.correctAlert(); 
+    // } else {
+    //   this.incorrectAlert();
+    // }
   }
 
   isSelected(num: number) {
@@ -59,6 +63,36 @@ export class GamePage {
   checkGame() {
     if (this.board.isFull()) {
       console.log("BOARD FULL.");
+      // check if correct
+      if (this.board.isSolved()) {
+        this.correctAlert();
+      } else {
+        this.incorrectAlert();
+      }
     }
+  }
+
+  correctAlert() {
+    this.alertCtrl.create({
+      title: 'You Win!',
+      subTitle: 'You have solved this Sudoku puzzle. Congratulations!',
+      buttons: ['OK']
+    }).present();
+  }
+
+  incorrectAlert() {
+    this.alertCtrl.create({
+      title: 'Something\'s Wrong',
+      subTitle: 'There seems to be a mistake on the Sudoku board. Would you like to get a hint?',
+      buttons: ['Yes', 'No']
+    }).present();
+  }
+
+  invalidMoveAlert() {
+    this.alertCtrl.create({
+      title: 'Invalid Move',
+      subTitle: 'The move you\'re trying to make is invalid.',
+      buttons: ['OK']
+    }).present();
   }
 }
