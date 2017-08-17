@@ -36,10 +36,16 @@ export class GamePage {
   }
 
   pressedField(row: number, col: number) {
+    if (this.selected == -1) {
+      this.invalidMoveAlert("Please select a number first in order to make a move.");
+      return;
+    }
     let res = this.board.makeMove(row, col, this.selected);
     if (!res) {
-      this.invalidMoveAlert();
+      let msg = "The move you\'re trying to make is invalid.";
+      this.invalidMoveAlert(msg);
     }
+    this.selected = -1;
     this.checkGame();
   }
 
@@ -88,10 +94,10 @@ export class GamePage {
     }).present();
   }
 
-  invalidMoveAlert() {
+  invalidMoveAlert(msg: string) {
     this.alertCtrl.create({
       title: 'Invalid Move',
-      subTitle: 'The move you\'re trying to make is invalid.',
+      subTitle: msg,
       buttons: ['OK']
     }).present();
   }

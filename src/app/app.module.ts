@@ -10,6 +10,7 @@ import { PlayPage } from '../pages/play/play';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { BoardProvider } from '../providers/board/board';
+import { CreationProvider } from '../providers/creation/creation';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { BoardProvider } from '../providers/board/board';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    BoardProvider
+    BoardProvider,
+    CreationProvider
   ]
 })
 export class AppModule {}

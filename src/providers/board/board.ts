@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { CreationProvider } from '../creation/creation';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -8,7 +9,7 @@ export class BoardProvider {
   correct: boolean[][];
   changeable: boolean[][];
 
-  constructor() {
+  constructor(public creation: CreationProvider) {
     this.fields = [];
     this.correct = [];
     this.changeable = [];
@@ -25,7 +26,8 @@ export class BoardProvider {
   }
 
   createBoard(dif: number) {
-    this.parseBoard("659000000000170000000000030060300100000040960038006470207000010000010046000958000");
+    let b = this.creation.createBoard(dif);
+    this.parseBoard(b);
   }
 
   parseBoard(text: string) {
