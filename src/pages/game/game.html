@@ -12,7 +12,12 @@
   <ion-grid>
     <div class="field-row" *ngFor="let item of board.fields; let row = index;" style="text-align:center;">
       <div class="field" *ngFor="let number of item; let col = index;" (click)='pressedField(row,col)'>
-        {{number}}
+        <div *ngIf="incorrect != (row*9+col)">
+            {{number}}
+        </div>
+        <div class="incorrect" *ngIf="incorrect == (row*9+col)">
+            {{number}}
+        </div>
       </div>
     </div>
 

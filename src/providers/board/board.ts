@@ -116,6 +116,11 @@ export class BoardProvider {
   
   solve() {
     let x = this.solver.search(this.fields);
+    for (var i = 0; i < 9; i++) {
+      for (var j = 0; j < 9; j++) {
+        this.correct[i][j] = true;
+      }
+    }
     return x;
   }
 }

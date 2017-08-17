@@ -8,6 +8,9 @@ page-game {
         text-align:center;
         border: 1px solid black;
     }
+    .incorrect {
+        background-color: rgb(255, 50, 50);
+    }
 
     // number buttons
     .number-container {

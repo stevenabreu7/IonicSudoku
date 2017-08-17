@@ -13,6 +13,7 @@ export class GamePage {
   difficulty: number;
   difText: string;
   selected: number = -1;
+  incorrect: number = -1;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, public board: BoardProvider, 
@@ -60,15 +61,14 @@ export class GamePage {
     } else {
       this.selected = num;
     }
-    // if (num%2 == 0) {
-    //   this.correctAlert(); 
-    // } else {
-    //   this.incorrectAlert();
-    // }
   }
 
   isSelected(num: number) {
     return (this.selected == num);
+  }
+
+  isIncorrect(ind: number) {
+    return (this.incorrect == ind);
   }
 
   checkGame() {
@@ -79,6 +79,20 @@ export class GamePage {
         this.correctAlert();
       } else {
         this.incorrectAlert();
+      }
+    }
+  }
+
+  highlightIncorrect() {
+    console.log(this.board.correct);
+    for (var i = 0; i < 9; i++) {
+      for (var j = 0; j < 9; j++) {
+        if (!this.board.correct[i][j]) {
+          // check row i, col j
+          this.incorrect = i*9 + j;
+          console.log(this.incorrect);
+          return;
+        }
       }
     }
   }
@@ -95,7 +109,17 @@ export class GamePage {
     this.alertCtrl.create({
       title: 'Something\'s Wrong',
       subTitle: 'There seems to be a mistake on the Sudoku board. Would you like to get a hint?',
-      buttons: ['Yes', 'No']
+      buttons: [
+        {
+          text: 'Yes',
+          handler: () => {
+            this.highlightIncorrect();
+          }
+        },
+        {
+          text: 'No'
+        }
+      ]
     }).present();
   }
 
