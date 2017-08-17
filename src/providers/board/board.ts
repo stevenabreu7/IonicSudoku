@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CreationProvider } from '../creation/creation';
+import { SolverProvider } from '../solver/solver';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -9,7 +10,7 @@ export class BoardProvider {
   correct: boolean[][];
   changeable: boolean[][];
 
-  constructor(public creation: CreationProvider) {
+  constructor(public creation: CreationProvider, public solver: SolverProvider) {
     this.fields = [];
     this.correct = [];
     this.changeable = [];
@@ -90,29 +91,14 @@ export class BoardProvider {
     }
   }
 
-  ////////////////////////
-  // SOLVE SUDOKU BOARD //
-  ////////////////////////
-
-  solution(fields: number[][]) {
+  correctMove(fieldz: number[][], row: number, col: number, move: number) {
     for (var i = 0; i < 9; i++) {
-      for (var j = 0; j < 9; j++) {
-        if (this.fields[i][j] == 0) {
-          return false;
-        }
-      }
-    }
-    return true;
-  }
-
-  correctMove(fields: number[][], row: number, col: number, move: number) {
-    for (var i = 0; i < 9; i++) {
-      if (fields[row][i] == move) {
+      if (fieldz[row][i] == move) {
         return false;
       }
     }
     for (i = 0; i < 9; i++) {
-      if (fields[i][col] == move) {
+      if (fieldz[i][col] == move) {
         return false;
       }
     }
@@ -120,58 +106,17 @@ export class BoardProvider {
     let topLeftY = Math.floor(col/3)*3;
     for (i = 0; i < 3; i++) {
       for (var j = 0; j < 3; j++) {
-        if (fields[topLeftX+i][topLeftY+j] == move) {
+        if (fieldz[topLeftX+i][topLeftY+j] == move) {
           return false;
         }
       }
     }
     return true;
-  }
-
-  choices(fields: number[][], row: number, col: number) {
-    console.log(fields.toString());
-    var possibleMoves: number[] = [];
-    for (var pos = 0; pos < 9; pos++) {
-      if (this.correctMove(fields, row, col, pos)) {
-        possibleMoves.push(pos);
-      }
-    }
-    // TODO randomize choices before returning them
-    return possibleMoves;
-  }
-
-  search(fields: number[][]) {
-    if (fields != null && this.solution(fields)) {
-      return fields;
-    } else {
-      // find first free field
-      var fieldz = fields;
-      var freeX = -1;
-      var freeY = -1;
-      for (var i = 0; i < 9; i++) {
-        for (var j = 0; j < 9; j++) {
-          if (fields[i][j] == 0) {
-            freeX = i;
-            freeY = j;
-          }
-        }
-      }
-      console.log("first free field is: " + freeX + ", " + freeY);
-      let choices = this.choices(fields, freeX, freeY);
-      console.log("it's choices are: " + choices);
-      choices.forEach(choice => {
-        fieldz[freeX][freeY] = choice;
-        let x = this.search(fieldz);
-        if (x != null) {
-          return x;
-        }
-        fieldz[freeX][freeY] = 0;
-      });
-      return null;
-    }
-  }
-
+  } 
+  
   solve() {
-    return this.search(this.fields);
+    let x = this.solver.search(this.fields);
+    console.log(x);
+    return x;
   }
 }

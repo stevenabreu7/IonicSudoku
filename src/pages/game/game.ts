@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { BoardProvider } from '../../providers/board/board';
+import { LoadingController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -15,7 +16,7 @@ export class GamePage {
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, public board: BoardProvider, 
-              public alertCtrl: AlertController) {
+              public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
     // constructor
   }
 
