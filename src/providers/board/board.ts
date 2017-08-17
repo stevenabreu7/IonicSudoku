@@ -116,7 +116,6 @@ export class BoardProvider {
   
   solve() {
     let x = this.solver.search(this.fields);
-    console.log(x);
     return x;
   }
 }

@@ -34,6 +34,10 @@ export class GamePage {
 
   solve() {
     console.log(this.board.solve());
+    this.alertCtrl.create({
+      title: 'Solved!',
+      buttons: ['OK']
+    }).present();
   }
 
   pressedField(row: number, col: number) {
