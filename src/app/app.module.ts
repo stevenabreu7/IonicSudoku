@@ -6,7 +6,9 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { GamePage } from '../pages/game/game';
 import { PlayPage } from '../pages/play/play';
+import { OnboardingPage } from '../pages/onboarding/onboarding';
 
+import { IonicStorageModule } from '@ionic/storage';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { BoardProvider } from '../providers/board/board';
@@ -18,18 +20,21 @@ import { SolverProvider } from '../providers/solver/solver';
     MyApp,
     HomePage,
     GamePage,
-    PlayPage
+    PlayPage,
+    OnboardingPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     GamePage,
-    PlayPage
+    PlayPage,
+    OnboardingPage
   ],
   providers: [
     StatusBar,
