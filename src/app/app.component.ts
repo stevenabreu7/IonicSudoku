@@ -4,8 +4,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
 
-import { HomePage } from '../pages/home/home';
-import { GamePage } from '../pages/game/game';
+// import { HomePage } from '../pages/home/home';
+// import { GamePage } from '../pages/game/game';
 import { PlayPage } from '../pages/play/play';
 import { OnboardingPage } from '../pages/onboarding/onboarding';
 
@@ -22,10 +22,10 @@ export class MyApp {
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private storage: Storage) {
     this.initializeApp();
 
-    this.storage.get('b').then(val => {
+    this.storage.get('onboardingSeen').then(val => {
       if (val == null) {
         this.rootPage = OnboardingPage;
-        // this.storage.set('b', true);
+        this.storage.set('onboardingSeen', true);
       } else {
         this.rootPage = PlayPage;
       }
