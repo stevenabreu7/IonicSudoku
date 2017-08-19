@@ -12,9 +12,6 @@ export class PlayPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-  }
-
   startGame(diff: number) {
     this.navCtrl.push(GamePage, {
       difficulty: diff

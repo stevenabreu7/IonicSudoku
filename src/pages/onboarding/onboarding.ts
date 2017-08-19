@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { PlayPage } from '../play/play';
 
 /**
@@ -39,10 +39,14 @@ export class OnboardingPage {
     }
   ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController) {
+  }
+
+  ionViewWillEnter() {
+    this.viewCtrl.showBackButton(false);
   }
   
   skip() {
-    this.navCtrl.push(PlayPage);
+    this.navCtrl.setRoot(PlayPage, {}, {animate: true, direction: 'forward'});
   }
 }

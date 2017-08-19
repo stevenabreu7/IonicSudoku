@@ -39,7 +39,7 @@ export class CreationProvider {
   }
 
   createBoard(dif: number): string {
-    let rnd = 0;
+    let rnd = this.randomIntFromInterval(0,5);
     switch (dif) {
       case 0:
         return this.easyBoards[rnd];
@@ -50,5 +50,10 @@ export class CreationProvider {
       default:
         return this.easyBoards[rnd];
     }
+  }
+
+  randomIntFromInterval(min,max)
+  {
+      return Math.floor(Math.random()*(max-min+1)+min);
   }
 }
