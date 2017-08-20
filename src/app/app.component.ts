@@ -35,7 +35,7 @@ export class MyApp {
     this.pages = [
       { title: 'Play Now', component: PlayPage },
       // { title: 'Sudoku', component: GamePage },
-      { title: 'Onboarding', component: OnboardingPage }
+      { title: 'Tutorial', component: OnboardingPage }
     ];
 
   }

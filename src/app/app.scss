@@ -1,5 +1,20 @@
 // http://ionicframework.com/docs/theming/
 
+@font-face {
+    font-family: BebasNeue;
+    src: url(./assets/fonts/BebasNeueBook.otf);
+    font-weight: normal;
+}
+
+span.menuTitle {
+    font-family: "BebasNeue";
+    font-size: 1.5em;
+}
+
+button.menuButton {
+    font-family: "BebasNeue";
+    font-size: 1.5em;
+}
 
 // App Global Sass
 // --------------------------------------------------
