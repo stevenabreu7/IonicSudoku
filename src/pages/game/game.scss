@@ -1,4 +1,21 @@
 page-game {
+
+    .foo {
+        font-family: "BebasNeue";
+        font-size: 1.5em;
+    }
+
+    // button
+    .solvebtn {
+        display: block;
+        margin: auto;
+        margin-top: 20px;
+        background-color: transparent;
+        font-size: 8vmin;
+        font-family: "BebasNeue";
+        color: #ccc;
+    }
+
     // fields
     .field {
         width:9vmin;
@@ -6,7 +23,8 @@ page-game {
         line-height:9vmin;
         display:inline-block;
         text-align:center;
-        border: 1px solid black;
+        border: 0.5px solid white;
+        font-size: 5vmin;
     }
     .incorrect {
         background-color: rgb(255, 50, 50);
@@ -19,13 +37,14 @@ page-game {
         line-height:9vmin;
         display:inline-block;
         text-align:center;
+        font-size: 5vmin;
     }
     .number {
         border-radius: 5px;
-        background-color: white;
+        background-color: transparent;
     }
     .number.selected {
-        background-color: #bbb;
+        background-color: #555;
     }
 
     // no border at the ends
@@ -44,17 +63,17 @@ page-game {
 
     // double horizontal borders
     .field-row:nth-child(3) .field {
-        border-bottom-width: 3px;
+        border-bottom-width: 2px;
     }
     .field-row:nth-child(6) .field {
-        border-bottom-width: 3px;
+        border-bottom-width: 2px;
     }
 
     // double vertical borders
     .field:nth-child(3) {
-        border-right-width: 3px;
+        border-right-width: 2px;
     }
     .field:nth-child(6) {
-        border-right-width: 3px;
+        border-right-width: 2px;
     }
 }

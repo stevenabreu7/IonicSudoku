@@ -1,9 +1,10 @@
 <ion-header>
   <ion-navbar>
-    <!-- <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button> -->
-    <ion-title>{{difText}} Sudoku</ion-title>
+    <ion-title>
+      <span class="foo">
+        {{difText}} Sudoku
+      </span>      
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -37,7 +38,7 @@
     <div style="height:10px"></div>
 
     <div>
-        <button ion-button full secondary (click)="solve()">Solve Sudoku</button>
+        <button class="solvebtn" (click)="solve()">Solve Sudoku</button>
     </div>
   </ion-grid>
 

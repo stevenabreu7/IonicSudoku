@@ -25,7 +25,12 @@ import { SolverProvider } from '../providers/solver/solver';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    // IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{
+      backButtonText: '',
+      backButtonIcon: 'ios-arrow-back',
+      iconMode: 'md'
+    }),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
