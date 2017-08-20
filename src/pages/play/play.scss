@@ -1,5 +1,31 @@
 page-play {
-    body {
-        background-color: black;
+    @font-face {
+        font-family: BebasNeue;
+        src: url(./assets/fonts/BebasNeueBook.otf);
+        font-weight: normal;
+    }
+
+    img {
+        max-width: 500px;
+        width: 80%; 
+        display: block;
+        margin: auto;
+    }
+
+    .difficulty {
+        font-size: 4vh;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: "BebasNeue";
+    }
+
+    .difbutton {
+        background-color: transparent;
+        display: block;
+        margin: auto;
+        color: #ccc !important;
+        font-size: 8vh !important;
+        font-family: "BebasNeue";
+        height: 17vh;
     }
 }

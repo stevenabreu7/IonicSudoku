@@ -9,6 +9,8 @@ import { GamePage } from '../game/game';
 })
 export class PlayPage {
 
+  difficulties = ["Easy", "Medium", "Hard"];
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

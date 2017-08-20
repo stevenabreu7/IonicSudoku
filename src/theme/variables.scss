@@ -38,9 +38,17 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  background: #333
 );
 
+$background-color: #333;
+$toolbar-background: transparent;
+
+$text-color: #ccc;
+
+$alert-ios-background: #666;
+$alert-md-background-color: #666;
 
 // App iOS Variables
 // --------------------------------------------------

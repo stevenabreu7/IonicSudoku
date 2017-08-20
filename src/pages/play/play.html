@@ -1,19 +1,10 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Sudoku</ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
-  <p>
-    A nice little Sudoku game. Pick a difficulty and enjoy!
+  <img src="./assets/img/logo.png" alt="">
+
+  <p class="difficulty">
+    Choose your difficulty
   </p>
 
-  <button ion-button full secondary (click)="startGame(0)">Easy</button>
-  <button ion-button full secondary (click)="startGame(1)">Medium</button>
-  <button ion-button full secondary (click)="startGame(2)">Hard</button>
+  <button class="difbutton" *ngFor="let i of [0,1,2]" (click)="startGame(i)">{{difficulties[i]}}</button>
 
 </ion-content>
