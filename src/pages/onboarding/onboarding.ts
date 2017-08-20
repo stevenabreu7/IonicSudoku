@@ -20,22 +20,22 @@ export class OnboardingPage {
     {
       title: "Welcome to Sudoku",
       description: "This is a small Sudoku game with an intelligent solving algorithm that will solve any Sudoku (almost) instantly.",
-      image: "assets/img/ica-slidebox-img-1.png",
+      image: "assets/img/logo.png",
     },
     {
       title: "Who made this?",
-      description: "My name is Steven Abreu and I am very passionate about developing software. I made this game for you to download competely free of charge. Please let me know about any improvement ideas or other feedback!",
-      image: "assets/img/ica-slidebox-img-2.png",
+      description: "My name is Steven Abreu and I am very passionate about developing software. I made this game for you to download competely free of charge. Please let me know <a href='http://github.com/stevenabreu7'>here</a> about any improvement ideas or other feedback!",
+      image: "assets/img/board.png",
     },
     {
       title: "How to play?",
       description: "It's very simple. Once you finish this tutorial, you will be able to choose between three difficulties. <br>In order to fill a field, you need to press on the number you want to enter, and then on the field in which to enter this number.",
-      image: "assets/img/ica-slidebox-img-3.png",
+      image: "assets/img/numbers.png",
     },
     {
       title: "How to use the AI solver?",
       description: "In any Sudoku puzzle, you can press the button below to start the AI solving algorithm.",
-      image: "assets/img/ica-slidebox-img-3.png",
+      image: "assets/img/solved.png",
     }
   ];
 

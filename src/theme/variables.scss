@@ -44,28 +44,22 @@ $colors: (
 
 $background-color: #333;
 $toolbar-background: transparent;
-
 $text-color: #ccc;
-
-$alert-ios-background: #666;
-$alert-ios-button-text-color: #111;
-$alert-ios-button-border-color: #333;
-$alert-md-background-color: #ccc;
-$alert-md-button-text-color: #111;
 
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
-
-
+$alert-ios-background: #666;
+$alert-ios-button-text-color: #111;
+$alert-ios-button-border-color: #333;
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-
-
+$alert-md-background-color: #ccc;
+$alert-md-button-text-color: #111;
 
 // App Windows Variables
 // --------------------------------------------------
